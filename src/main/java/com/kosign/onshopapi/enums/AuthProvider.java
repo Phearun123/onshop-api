@@ -10,9 +10,8 @@ import java.util.stream.Stream;
  * A class can be used for getting Status enum
  */
 public enum AuthProvider implements GenericEnum<AuthProvider, String> {
-    DEV("DEV"),
     ADMIN("ADMIN"),
-    PO("PO"),
+    USER("USER"),
     ;
 
     private final String value;
@@ -38,9 +37,8 @@ public enum AuthProvider implements GenericEnum<AuthProvider, String> {
     public String getLabel() {
 
         return switch (this){
-            case DEV -> "DEV";
             case ADMIN -> "ADMIN";
-            case PO -> "PO";
+            case USER -> "USER";
             default -> "Not supported yet.";
         };
     }
