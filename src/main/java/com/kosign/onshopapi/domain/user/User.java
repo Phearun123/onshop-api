@@ -38,7 +38,7 @@ public class User extends CreatableEntity {
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", length = 10, nullable = false)
+    @Column(name = "role")
     private AuthProvider role;
 
     @Column(name = "sts", length = 1)

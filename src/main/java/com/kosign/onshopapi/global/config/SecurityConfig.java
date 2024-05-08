@@ -53,7 +53,7 @@ public class SecurityConfig {
 
 
     private static final List<String> PERMIT_ALL = List.of(
-           "/api/ca/v1/auth/login",
+           "/api/os/v1/auth/login",
             "/api/v1/image/**",
             "/api/v1/demo"
     );

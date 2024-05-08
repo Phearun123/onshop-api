@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kosign.onshopapi.enums.AuthProvider;
 import jakarta.validation.constraints.NotBlank;
 
-public record AuthRequest(
+public record SignUpRequest(
         @JsonProperty("usr_nm")
         @NotBlank
         String username,
@@ -21,7 +21,6 @@ public record AuthRequest(
         @NotBlank
         String phoneNumber,
         @JsonProperty("role")
-        @NotBlank(message = "Role can not be null")
         AuthProvider role
 
 ) {
