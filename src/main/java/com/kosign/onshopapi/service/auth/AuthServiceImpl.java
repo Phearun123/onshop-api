@@ -1,6 +1,5 @@
 package com.kosign.onshopapi.service.auth;
 
-import com.kosign.onshopapi.common.Pagination;
 import com.kosign.onshopapi.common.api.StatusCode;
 import com.kosign.onshopapi.component.security.JwtTokenUtil;
 import com.kosign.onshopapi.component.security.UserAuthenticationProvider;
@@ -123,4 +122,15 @@ public class AuthServiceImpl implements AuthService{
                 .page(userPage)
                 .build();
     }
+
+    @Deprecated
+    @Override
+    public void delete(DeleteUserRequest payload) throws Throwable {
+        payload.userId().forEach(userId -> {
+            var user = userRepository.findUserId(userId).orElseThrow(() -> new BusinessException(StatusCode.USER_NOT_FOUND));
+
+            userRepository.delete(user);
+        });
+    }
+
 }

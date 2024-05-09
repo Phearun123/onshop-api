@@ -1,6 +1,7 @@
 package com.kosign.onshopapi.domain.user;
 
 import com.kosign.onshopapi.domain.CreatableEntity;
+import com.kosign.onshopapi.domain.seller.Seller;
 import com.kosign.onshopapi.enums.AuthProvider;
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 
 import java.sql.Types;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,7 +22,7 @@ public class User extends CreatableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long uid;
 
     @Column(name = "usr_nm")
     private String username;
@@ -45,9 +47,12 @@ public class User extends CreatableEntity {
     @JdbcTypeCode(Types.CHAR)
     private String status;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Seller> sellers;
+
     @Builder
-    public User(Long id, String username, String password, String email, String address, String phoneNumber, AuthProvider role, String status) {
-        this.id = id;
+    public User(Long uid, String username, String password, String email, String address, String phoneNumber, AuthProvider role, String status, List<Seller> sellers) {
+        this.uid = uid;
         this.username = username;
         this.password = password;
         this.email = email;
@@ -55,5 +60,6 @@ public class User extends CreatableEntity {
         this.phoneNumber = phoneNumber;
         this.role = role;
         this.status = status;
+        this.sellers = sellers;
     }
 }

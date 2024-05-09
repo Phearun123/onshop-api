@@ -2,6 +2,7 @@ package com.kosign.onshopapi.controller.auth;
 
 import com.kosign.onshopapi.controller.OnShopRestController;
 import com.kosign.onshopapi.payload.MultiSortBuilder;
+import com.kosign.onshopapi.payload.auth.DeleteUserRequest;
 import com.kosign.onshopapi.payload.auth.SignUpRequest;
 import com.kosign.onshopapi.payload.auth.UpdateUserRequest;
 import com.kosign.onshopapi.payload.auth.UsersCriteria;
@@ -60,5 +61,10 @@ public class AuthController extends OnShopRestController {
         return ok(authService.getUsers(criteria, pageable));
     }
 
+    @DeleteMapping("")
+    public Object delete(@RequestBody @Valid DeleteUserRequest payload) throws Throwable {
+        authService.delete(payload);
+        return ok();
+    }
 
 }

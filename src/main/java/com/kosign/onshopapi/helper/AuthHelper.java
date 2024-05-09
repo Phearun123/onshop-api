@@ -64,7 +64,7 @@ public class AuthHelper {
     }
 
     public static Long getUserId() {
-        return  getUser().getId();
+        return  getUser().getUid();
     }
 
 

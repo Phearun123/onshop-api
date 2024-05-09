@@ -22,10 +22,11 @@ class OnshopTests {
 
     @Test
     void contextLoads() throws Throwable {
-        System.err.println("PWD : " + PasswordUtils.encrypt("Cc12345"));
-        System.err.println("PWD : " + PasswordUtils.encrypt("A12345"));
-//        SignUpRequest payload = new SignUpRequest("Darith","cFdaQc5J+jgIZ64L0mCHdg==", "Dara@gmail.com", "PP", "0123456789", AuthProvider.ADMIN);
-//        authService.signup(payload);
+        System.err.println("PWD : " + PasswordUtils.encrypt("Cc12345")); // cFdaQc5J+jgIZ64L0mCHdg==
+        System.err.println("PWD : " + PasswordUtils.encrypt("A12345"));  //  QH+E6fACaZKoITsa59HYDg==
+        System.err.println("PWD : " + PasswordUtils.encrypt("B12345")); //  JNFgOm93rZVm0eZwPypHTg==
+        SignUpRequest payload = new SignUpRequest("Sarina","cFdaQc5J+jgIZ64L0mCHdg==", "sarina@gmail.com", "PP", "0123456789", AuthProvider.ADMIN);
+        authService.signup(payload);
     }
 
 }
