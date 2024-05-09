@@ -162,7 +162,9 @@ public enum StatusCode {
     LANG_CODE_NOT_FOUND(400, "lang code not found" ),
     LANG_CODE_ALREADY_EXISTS(400, "lang code already exist" ),
     LANG_NAME_ALREADY_EXISTS(400, "lang name already exist" ),
-    PROJECT_NAME_EXIST(400, "Project name cannot duplicate" );
+    PROJECT_NAME_EXIST(400, "Project name cannot duplicate" ),
+    CATEGORY_EXISTED(400, "Category name already exist" ),
+    CATEGORY_NOT_FOUND(400, "Category not fount" );
 
     private final String message;
     private final int code;
